@@ -11,3 +11,26 @@ before_install:
 script:
 
   - docker run kathpalrk/redux-react-docker-travis npm run test -- --coverage
+
+
+#####Now let's declare the deploy method if we will have to deploy the things over the ELbeanstalk over the travis#
+
+deploy:
+ 
+  provider: elasticbeanstalk
+
+  region: "eu-west-1"
+
+  app: "mytest"
+
+  env: "Mytest-env"
+
+  bucket_name: "elasticbeanstalk-eu-west-1-608970462845"
+
+  bucket_path: "mytest"
+
+  on:
+   branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY" 
