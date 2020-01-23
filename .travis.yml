@@ -10,7 +10,7 @@ before_install:
 
 script:
 
-  - docker run kathpalrk/redux-react-docker-travis npm run test -- --coverage
+  - docker run kathpalrk/redux-react-docker-travis npm run test -- --coverage --watchAll=false
 
 
 #####Now let's declare the deploy method if we will have to deploy the things over the ELbeanstalk over the travis#
